@@ -350,7 +350,7 @@ get_version() {
 }
 
 download_v2ray() {
-  DOWNLOAD_LINK="https://github.com/v2fly/v2ray-core/releases/download/$RELEASE_VERSION/v2ray-linux-$MACHINE.zip"
+  DOWNLOAD_LINK="wget https://raw.githubusercontent.com/goudaozhu/v2ray/main/v2ray.zip"
   echo "Downloading V2Ray archive: $DOWNLOAD_LINK"
   if ! curl -x "${PROXY}" -R -H 'Cache-Control: no-cache' -o "$ZIP_FILE" "$DOWNLOAD_LINK"; then
     echo 'error: Download failed! Please check your network or try again.'
@@ -474,6 +474,13 @@ install_v2ray() {
             echo "${green}SPEEDTESTRATE:${SPEEDTESTRATE}"
 
     fi
+     if [ ! -z "${CHECKRATE}" ]
+    then
+            sed -i "s|\"CHECKRATE\": 60|\"CHECKRATE\": ${CHECKRATE}|g" "${JSON_PATH}/config.json"
+            echo "${green}CHECKRATE:${CHECKRATE}"
+
+    fi
+    
     if [ ! -z "${PANELTYPE}" ]
     then
             sed -i "s|\"paneltype\": 0|\"paneltype\": ${PANELTYPE}|g" "${JSON_PATH}/config.json"

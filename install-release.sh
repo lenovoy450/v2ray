@@ -850,6 +850,14 @@ main() {
   else
     echo 'Please execute the command: systemctl enable v2ray; systemctl start v2ray'
   fi
+     crontab -l > conf
+    echo '0 0 * * * echo "" > /var/log/v2ray/error.log' >> conf
+    echo '0 0 * * * echo "" > /var/log/v2ray/access.log' >> conf  
+    crontab conf
+    systemctl enable v2ray.service
+	systemctl restart v2ray.service
+	systemctl status v2ray.service
+    return 0
 }
 
 main "$@"

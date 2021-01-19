@@ -25,6 +25,9 @@ JSON_PATH=${JSON_PATH:-/usr/local/etc/v2ray}
 
 # Set this variable only if you want this script to check all the systemd unit file:
 # export check_all_service_files='yes'
+ulimit -n 65535
+echo "* soft nofile 51200">>/etc/security/limits.conf
+echo "* hard nofile 51200">>/etc/security/limits.conf
 curl() {
   $(type -P curl) -L -q --retry 5 --retry-delay 10 --retry-max-time 60 "$@"
 }

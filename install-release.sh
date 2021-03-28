@@ -26,6 +26,8 @@ JSON_PATH=${JSON_PATH:-/usr/local/etc/v2ray}
 # Set this variable only if you want this script to check all the systemd unit file:
 # export check_all_service_files='yes'
 ulimit -n 65535
+echo "ulimit -n 65535"  >>/etc/profile
+source  /etc/profile
 echo "* soft nofile 51200">>/etc/security/limits.conf
 echo "* hard nofile 51200">>/etc/security/limits.conf
 curl() {

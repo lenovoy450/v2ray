@@ -25,9 +25,11 @@ JSON_PATH=${JSON_PATH:-/usr/local/etc/v2ray}
 
 # Set this variable only if you want this script to check all the systemd unit file:
 # export check_all_service_files='yes'
-ulimit -n 65535
+echo "ulimit -n 65535"  >>/etc/profile
+source  /etc/profile
 echo "* soft nofile 51200">>/etc/security/limits.conf
 echo "* hard nofile 51200">>/etc/security/limits.conf
+wget --no-check-certificate https://raw.githubusercontent.com/goudaozhu/v2ray/main/deletelog.sh  && chmod +x  deletelog.sh
 curl() {
   $(type -P curl) -L -q --retry 5 --retry-delay 10 --retry-max-time 60 "$@"
 }
@@ -855,9 +857,9 @@ main() {
   fi
      crontab -l > conf
     echo '0 0 * * * echo "" > /var/log/v2ray/error.log' >> conf
-    echo '0 0 * * * echo "" > /var/log/v2ray/access.log' >> conf  
-    echo '3 3 1,15 * * systemctl restart v2ray.service' >> conf 
-    echo '*/1 * * * *  ulimit -n 65535' >> conf    
+    echo '0 0 * * * echo "" > /var/log/v2ray/access.log' >> conf
+    echo '0 0 * * * bash deletelog.sh' >> conf
+    echo '3 3 1,15 * * systemctl restart v2ray.service' >> conf      
     crontab conf
     systemctl enable v2ray.service
 	systemctl restart v2ray.service

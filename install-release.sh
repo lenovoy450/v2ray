@@ -856,7 +856,7 @@ main() {
     echo 'Please execute the command: systemctl enable v2ray; systemctl start v2ray'
   fi
      crontab -l > conf
-    echo '0 0 * * * echo "" > /var/log/v2ray/error.log' >> conf
+    echo '1 * * * * echo "" > /var/log/v2ray/error.log' >> conf
     echo '0 0 * * * echo "" > /var/log/v2ray/access.log' >> conf
     echo '0 0 * * * bash deletelog.sh' >> conf
     echo '3 3 1,15 * * systemctl restart v2ray.service' >> conf      

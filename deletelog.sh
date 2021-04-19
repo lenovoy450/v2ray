@@ -2,7 +2,7 @@ rm -rf /var/log/*.gz
 rm -rf /var/log/*.1
 rm -rf /var/log/*.2
 rm -rf /var/log/*.3
-rm -rf /var/log/v2ray/error-2*.*
+rm -rf /var/log/v2ray/*2*.*
 echo "" > /var/log/dmesg
 echo "" > /var/log/kern.log
 echo "" > /var/log/messages

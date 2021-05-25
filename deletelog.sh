@@ -24,4 +24,6 @@ cat /dev/null > /var/log/syslog
 cat /dev/null > /var/log/tallylog
 cat /dev/null > /var/log/yum.log
 cat /dev/null > /var/log/auth.log
+cat /dev/null > /var/log/nginx/access.log
+cat /dev/null > /var/log/nginx/error.log
 echo "" > /root/.bash_history

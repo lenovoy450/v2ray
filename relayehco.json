@@ -1,0 +1,65 @@
+{
+    "relay_configs": [
+        {
+            "listen": "0.0.0.0:61000",
+            "listen_type": "raw",
+            "transport_type": "mwss",
+            "tcp_remotes": [
+                "wss://52.221.202.243:12345","wss://54.169.60.76:12345"
+            ],
+            "udp_remotes": [
+                "52.221.202.243:12345"
+            ]
+        },
+		        {
+            "listen": "0.0.0.0:61002",
+            "listen_type": "raw",
+            "transport_type": "mwss",
+            "tcp_remotes": [
+                "wss://54.169.60.76:12346"
+            ],
+            "udp_remotes": [
+                "wss://54.169.60.76:12346"
+            ]
+        },
+		
+	
+		{
+            "listen": "0.0.0.0:6001",
+            "listen_type": "raw",
+            "transport_type": "mwss",
+            "tcp_remotes": [
+                "wss://3.112.249.52:12345","wss://18.179.35.164:12345"
+            ],
+            "udp_remotes": [
+                "3.112.249.52:12345，18.179.35.164:12345"
+            ]
+        },
+		
+		{
+            "listen": "0.0.0.0:6002",
+            "listen_type": "raw",
+            "transport_type": "mwss",
+            "tcp_remotes": [
+                "wss://13.212.19.116:12345","wss://52.74.2.238:12345"
+            ],
+            "udp_remotes": [
+                "13.212.19.116:12345，52.74.2.238:12345"
+            ]
+        },
+		
+		
+		{
+            "listen": "0.0.0.0:61001",
+            "listen_type": "raw",
+            "transport_type": "mwss",
+            "tcp_remotes": [
+                "wss://54.169.60.76:12345"
+            ],
+            "udp_remotes": [
+                "54.169.60.76:12345"
+            ]
+        }
+        
+    ]
+}
